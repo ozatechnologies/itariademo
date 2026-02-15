@@ -432,16 +432,64 @@
             background: var(--card-bg);
             border-left: 1px solid var(--border-color);
             box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
+            z-index: 99999;
             padding: 120px 50px 50px;
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             gap: 20px;
+            visibility: hidden;
+            opacity: 0;
         }
 
         .mobile-menu.active {
             right: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Mobile Menu Close Button */
+        .mobile-menu-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu-close span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .mobile-menu-close span:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+
+        .mobile-menu-close:hover {
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-close:hover span {
+            background-color: #fff;
         }
 
         .mobile-menu a {
@@ -2408,6 +2456,12 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
+        <!-- Close Button -->
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+            <span></span>
+            <span></span>
+        </button>
+        
         <a href="index.html">Home</a>
         <a href="collection.html">Collection</a>
         <a href="about.html">About</a>
@@ -2417,21 +2471,29 @@
     </div>
 
     <script>
-        // Mobile menu functionality
+        // Mobile menu functionality - CLEAN VERSION
         document.addEventListener('DOMContentLoaded', function () {
             const mobileToggle = document.getElementById('mobileToggle');
             const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
             const body = document.body;
             const header = document.getElementById('header');
+
+            if (!mobileToggle || !mobileMenu || !header) {
+                console.error('Mobile menu elements not found');
+                return;
+            }
 
             // Toggle mobile menu
             mobileToggle.addEventListener('click', function (e) {
                 e.preventDefault();
+                e.stopPropagation();
+                
                 this.classList.toggle('active');
                 mobileMenu.classList.toggle('active');
-                body.classList.toggle('menu-open');
+                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
 
-                // Update header class based on menu state
+                // Update header background
                 if (mobileMenu.classList.contains('active')) {
                     header.classList.add('scrolled');
                 } else if (window.scrollY <= 10) {
@@ -2439,12 +2501,28 @@
                 }
             });
 
-            // Close mobile menu when clicking outside
+            // Close menu with close button
+            if (mobileMenuClose) {
+                mobileMenuClose.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    mobileToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    body.style.overflow = '';
+                    
+                    if (window.scrollY <= 10) {
+                        header.classList.remove('scrolled');
+                    }
+                });
+            }
+
+            // Close menu when clicking outside
             document.addEventListener('click', function (e) {
-                if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target) && (!mobileMenuClose || !mobileMenuClose.contains(e.target))) {
                     mobileMenu.classList.remove('active');
                     mobileToggle.classList.remove('active');
-                    body.classList.remove('menu-open');
+                    body.style.overflow = '';
 
                     if (window.scrollY <= 10) {
                         header.classList.remove('scrolled');
@@ -2452,122 +2530,30 @@
                 }
             });
 
-            // Close mobile menu when clicking a link
+            // Close menu when clicking a link
             const navLinks = mobileMenu.querySelectorAll('a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function () {
                     mobileMenu.classList.remove('active');
                     mobileToggle.classList.remove('active');
-                    body.classList.remove('menu-open');
+                    body.style.overflow = '';
                 });
             });
 
-            // Scroll effect - transparent to white
-            const headerElement = document.getElementById('header');
-            const logoImg = document.querySelector('.logo-img');
-
+            // Header scroll effect
             function updateHeader() {
+                const logoImg = document.querySelector('.logo-img');
                 if (window.scrollY > 10 || mobileMenu.classList.contains('active')) {
-                    headerElement.classList.add('scrolled');
+                    header.classList.add('scrolled');
                     if (logoImg) logoImg.style.maxWidth = '140px';
                 } else {
-                    headerElement.classList.remove('scrolled');
+                    header.classList.remove('scrolled');
                     if (logoImg) logoImg.style.maxWidth = '180px';
                 }
             }
 
             window.addEventListener('scroll', updateHeader);
-            updateHeader(); // Initial check
-        });
-
-        // Scroll effect - transparent to white
-        const headerElement = document.getElementById('header');
-
-        window.addEventListener('scroll', function updateHeader() {
-            const logoImg = document.querySelector('.logo-img');
-            if (window.scrollY > 10 || (mobileMenu && mobileMenu.classList.contains('active'))) {
-                headerElement.classList.add('scrolled');
-                if (logoImg) logoImg.style.maxWidth = '140px';
-            } else {
-                headerElement.classList.remove('scrolled');
-                if (logoImg) logoImg.style.maxWidth = '180px';
-            }
-        });
-
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileToggle = document.getElementById('mobileToggle');
-            const mobileMenu = document.getElementById('mobileMenu');
-            const body = document.body;
-            const header = document.getElementById('header');
-
-            // Toggle mobile menu
-            mobileToggle.addEventListener('click', function (e) {
-                e.stopPropagation();
-                this.classList.toggle('active');
-                mobileMenu.classList.toggle('active');
-                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-
-                // Add/remove scrolled class to header when mobile menu is open
-                if (mobileMenu.classList.contains('active')) {
-                    header.classList.add('scrolled');
-                } else if (window.scrollY <= 50) {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function (e) {
-                if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
-                    mobileToggle.classList.remove('active');
-                    mobileMenu.classList.remove('active');
-                    body.style.overflow = '';
-
-                    if (window.scrollY <= 50) {
-                        header.classList.remove('scrolled');
-                    }
-                }
-            });
-
-            // Close mobile menu when clicking a link
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    // Only prevent default if it's an anchor link
-                    if (this.getAttribute('href').startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-
-                        if (targetElement) {
-                            // Close menu
-                            mobileToggle.classList.remove('active');
-                            mobileMenu.classList.remove('active');
-                            body.style.overflow = '';
-
-                            // Smooth scroll to section
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80, // Adjust for header height
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-
-            // Handle window resize
-            let resizeTimer;
-            window.addEventListener('resize', function () {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function () {
-                    if (window.innerWidth > 992) {
-                        // If window is resized to desktop view, ensure mobile menu is closed
-                        mobileToggle.classList.remove('active');
-                        mobileMenu.classList.remove('active');
-                        body.style.overflow = '';
-                    }
-                }, 250);
-            });
+            updateHeader();
         });
     </script>
 
