@@ -1,0 +1,5089 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Itaria Ceramic India - Global Trade Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Simplified Blur Animation */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+        }
+        
+        @-webkit-keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                -webkit-transform: translateY(30px) scale(0.95);
+                transform: translateY(30px) scale(0.95);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: translateY(0) scale(1);
+                transform: translateY(0) scale(1);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+        }
+        
+        /* Fallback for unsupported browsers */
+        @supports not (backdrop-filter: blur(1px)) {
+            @keyframes fadeInUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(30px) scale(0.95);
+                    filter: blur(10px);
+                    backface-visibility: hidden;
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                    filter: blur(0);
+                    backface-visibility: hidden;
+                }
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        .slide-in-up {
+            animation: slideInUp 0.8s ease-out forwards;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.8s ease-out forwards;
+        }
+
+        .delayed-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delayed-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delayed-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delayed-4 {
+            animation-delay: 0.8s;
+        }
+
+        /* Watermark Styles */
+        .watermark {
+            position: absolute;
+            font-size: 30vw;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.04);
+            z-index: 0;
+            pointer-events: none;
+            font-family: 'Syne', sans-serif;
+            white-space: nowrap;
+            line-height: 1;
+            user-select: none;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .watermark {
+                font-size: 40vw;
+            }
+        }
+
+        /* Initial State for Scroll Animations */
+        [data-animate] {
+            opacity: 0;
+            transition: opacity 0.6s ease-out, transform 0.8s ease-out;
+        }
+
+        [data-animate="fade"] {
+            transform: translateY(20px);
+        }
+
+        [data-animate="left"] {
+            transform: translateX(-50px);
+        }
+
+        [data-animate="right"] {
+            transform: translateX(50px);
+        }
+
+        [data-animate="up"] {
+            transform: translateY(50px);
+        }
+
+        [data-animate].animate {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        :root {
+            --primary-bg: #000000;
+            --secondary-bg: #0a0a0a;
+            --card-bg: #111111;
+            --primary-white: #ffffff;
+            --soft-gray: #f5f5f5;
+            --text-dark: #ffffff;
+            --text-medium: #cccccc;
+            --text-muted: #888888;
+            --accent-gold: #D4AF37;
+            --accent-gold-light: #F4Cf57;
+            --accent-gold-dark: #AA8828;
+            --border-color: #333333;
+            --border-light: #333333;
+            --glass-bg: rgba(20, 20, 20, 0.8);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F4Cf57 50%, #D4AF37 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000; /* Highest z-index to ensure it's the top layer */
+            background: transparent;
+            box-shadow: none;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: var(--glass-bg) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .header.scrolled .logo-img {
+            max-width: 140px !important;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        /* Logo */
+        .logo {
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .logo-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 2px;
+            margin-bottom: 3px;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            font-weight: 400;
+            color: var(--accent-gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Desktop Navigation */
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+            position: relative;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 99999;
+            position: relative;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: #ffffff;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--card-bg);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+            z-index: 99998;
+            padding: 100px 30px 30px;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            overflow-y: auto;
+            border-left: 1px solid var(--border-color);
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 16px 0;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent-gold);
+            padding-left: 12px;
+        }
+
+        @media (max-width: 992px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+                z-index: 1002;
+            }
+
+            .header-content {
+                position: relative;
+                padding: 20px;
+            }
+
+            .logo {
+                margin-left: 40px;
+                margin-bottom: 0;
+            }
+
+            .logo-img {
+                max-width: 150px;
+            }
+        }
+
+        /* About Hero Section */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+        /* Fix CSS parsing issues */
+        * {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        /* Remove problematic vendor prefixes */
+        input::-moz-focus-inner {
+            border: 0;
+            padding: 0;
+        }
+
+:-webkit-full-screen {
+    background: white;
+}
+
+.about-hero {
+    min-height: 100vh;
+    padding: 0 20px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
+                url('https://images.pexels.com/photos/4913448/pexels-photo-4913448.jpeg') center/cover no-repeat fixed;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 80px 20px 40px;
+    box-sizing: border-box;
+    perspective: 1000px;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    z-index: 9999;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.about-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 40px 20px;
+    pointer-events: auto;
+}
+
+.about-hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 6rem;
+    color: #ffffff;
+    margin: 0 0 25px 0;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(30px) scale(0.95);
+    animation: 
+        fadeInUp 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards,
+        blurIn 1.2s ease-out 0.3s forwards;
+    -webkit-animation: 
+        fadeInUp 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards,
+        blurIn 1.2s ease-out 0.3s forwards;
+    animation-fill-mode: both;
+    -webkit-animation-fill-mode: both;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity, filter;
+    transform-style: preserve-3d;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 11;
+}
+
+@keyframes blurIn {
+    from {
+        filter: blur(10px);
+        opacity: 0;
+    }
+    to {
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+        .about-section {
+            padding: var(--section-padding);
+            background: var(--primary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+
+.about-image-wrapper {
+    position: relative;
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes wipeRight {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: -40px;
+            left: 40px;
+            width: 140px;
+            height: 140px;
+            background: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .badge-content {
+            position: absolute;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .badge-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .badge-label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-medium);
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        /* Mobile responsive styles for experience badge */
+        @media (max-width: 768px) {
+            .experience-badge {
+                width: 100px;
+                height: 100px;
+                top: -30px;
+                left: 20px;
+            }
+
+            .badge-number {
+                font-size: 32px;
+            }
+
+            .badge-label {
+                font-size: 8px;
+                letter-spacing: 1px;
+                margin-top: 3px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .experience-badge {
+                width: 80px;
+                height: 80px;
+                top: -25px;
+                left: 15px;
+            }
+
+            .badge-number {
+                font-size: 24px;
+            }
+
+            .badge-label {
+                font-size: 7px;
+                letter-spacing: 0.5px;
+                margin-top: 2px;
+            }
+        }
+
+        .about-content {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+        }
+
+        .about-content.reveal {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .label-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .label-text {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-gold);
+        }
+
+        .about-title {
+            font-family: 'Syne', sans-serif;
+            font-size: var(--h2-size);
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-text {
+            color: var(--text-medium);
+            font-size: var(--p-size);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .know-more-btn {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--primary-bg);
+            padding: 14px 30px;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            min-width: 160px;
+            text-align: center;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .know-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--text-dark);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .know-more-btn:hover::before {
+            left: 0;
+        }
+
+        .know-more-btn:hover {
+            color: var(--accent-gold);
+            border-color: var(--text-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 80px 20px;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: white;
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Responsive Utilities */
+        .mobile-only {
+            display: block;
+        }
+        
+        .desktop-only {
+            display: none;
+        }
+        
+        .text-center-mobile {
+            text-align: center;
+        }
+        
+        /* Responsive Images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Responsive Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        /* Responsive Iframes */
+        iframe, video, embed {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Responsive Breakpoints */
+        @media (max-width: 767px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-image-wrapper {
+                order: -1;
+            }
+            
+            .experience-badge {
+                width: 100px;
+                height: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .badge-number {
+                font-size: 36px;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+            }
+            
+            .mobile-only {
+                display: none;
+            }
+            
+            .desktop-only {
+                display: block;
+            }
+            
+            .text-center-mobile {
+                text-align: left;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            :root {
+                --container-padding: 40px;
+                --section-padding: 100px 60px;
+            }
+            
+            .about-grid {
+                gap: 80px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            :root {
+                --container-padding: 60px;
+            }
+        }
+        
+        /* Values Section */
+        .values-section {
+            background: var(--secondary-bg);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .values-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 42px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .values-header h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .values-header p {
+            font-size: 18px;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 25px auto 0;
+            line-height: 1.6;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            background: var(--card-bg);
+            padding: 40px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .value-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--accent-gold);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .value-card:hover:before {
+            height: 100%;
+        }
+
+        .value-icon {
+            font-size: 42px;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+        }
+
+        .value-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .value-card h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.7;
+        }
+
+        .value-card p {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-top: 20px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .values-grid {
+                gap: 20px;
+            }
+            
+            .value-card {
+                padding: 30px 20px;
+            }
+            
+            .value-icon {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            
+            .value-card h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .values-header h2 {
+                font-size: 36px;
+            }
+            
+            .values-header p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .values-header h2 {
+                font-size: 32px;
+            }
+            
+            .value-card {
+                padding: 30px 25px;
+            }
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-header h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 42px;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .team-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .team-member-image {
+            transform: scale(1.05);
+        }
+
+        .team-member h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--secondary-bg);
+            color: var(--text-dark);
+            padding: 70px 0 30px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-logo h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .footer-logo p {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .footer-about p {
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            color: var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-gold);
+            color: var(--primary-bg);
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-medium);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .contact-info p {
+            color: var(--text-medium);
+            margin: 0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            position: relative;
+            padding: 100px 20px;
+            overflow: hidden;
+            color: #fff;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+                url(https://diix1yrt822hg.cloudfront.net/media/products/tiles/images/series/__sized__/creativeconcretep/ambience/high-res/RAK_Cersaie24_CreativeConcretePMix-crop-c0-5__0-5-1600x775-70.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25vw;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.05);
+            white-space: nowrap;
+            font-family: 'Syne', sans-serif;
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            color: var(--accent-gold);
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+
+        .contact-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 42px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+            position: relative;
+        }
+
+        .contact-title span {
+            color: var(--accent-gold);
+            position: relative;
+        }
+
+        .contact-description {
+            font-size: 18px;
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 35px;
+            background-color: var(--accent-gold);
+            color: var(--primary-bg);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 1px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-button .button-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: var(--accent-gold-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                position: absolute;
+                top: 50%;
+                left: 20px;
+                transform: translateY(-50%);
+                z-index: 1002;
+            }
+
+            .mobile-toggle span {
+                background-color: #ffffff;
+            }
+
+            .header-content {
+                position: relative;
+                padding: 15px 20px;
+            }
+
+            .logo {
+                margin-left: 40px;
+            }
+
+            .mobile-menu {
+                display: flex;
+                flex-direction: column;
+                padding-top: 80px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-hero h1 {
+                font-size: 36px;
+            }
+
+            .about-title {
+                font-size: 32px;
+            }
+
+            .values-header h2,
+            .team-header h2 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 80px 20px;
+            }
+
+            .about-hero h1 {
+                font-size: 28px;
+            }
+
+            .about-hero p {
+                font-size: 16px;
+            }
+
+            .stat-number {
+                font-size: 36px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .contact-section {
+                padding: 70px 20px;
+            }
+
+            .contact-title {
+                font-size: 32px;
+            }
+
+            .contact-description {
+                font-size: 16px;
+            }
+
+            .contact-bg-text {
+                font-size: 30vw;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeIn 1s ease-in-out;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes fadeInBottom {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-bottom {
+            animation: fadeInBottom 1s ease-in-out;
+            animation-delay: 0.4s;
+        }
+        .split-hero {
+            width: 100vw;
+            height: 100vh;
+            text-align: center;
+            color: #CCC;
+            position: relative;
+            text-transform: uppercase;
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: 17.5px;
+            margin: 100px 0;
+        }
+
+        .hero-one {
+            top: 0;
+            position: absolute;
+            width: 60%;
+            background-color: black;
+            height: 100vh;
+            clip-path: polygon(0 0, 60vw 0, 40vw 100vh, 0 100vh);
+            z-index: 1;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+                url(https://diix1yrt822hg.cloudfront.net/media/products/tiles/images/series/__sized__/creativeconcretep/ambience/high-res/RAK_Cersaie24_CreativeConcretePMix-crop-c0-5__0-5-1600x775-70.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .hero-two {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            background-color: green;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)),
+                url(https://images.livspace-cdn.com/w:640/plain/https://d3gq2merok8n5r.cloudfront.net/abhinav/ond-1634120396-Obfdc/jfm-2023-1672723560-eFGVH/tile-design-1673335549-G864x/d-intd-jfm2023-1339-1673339859-LuchV/liv-002effectsresult-1673344589-9q0Qy.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .header-title {
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header-primary {
+            font-size: 3.8em;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            text-transform: none;
+            animation: fadeInSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            font-style: italic;
+        }
+
+        .header-sub {
+            font-size: 1.1em;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 10px auto 0;
+            padding: 0 40px;
+            text-transform: none;
+            animation: fadeInSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+            opacity: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            font-style: italic;
+            color: rgba(255,255,255,0.9);
+        }
+
+        @media (max-width: 992px) {
+            .header-primary {
+                font-size: 3.2em;
+                margin-bottom: 10px;
+                letter-spacing: 0.3px;
+            }
+
+            .header-sub {
+                font-size: 1em;
+                letter-spacing: 0.2px;
+                padding: 0 30px;
+                line-height: 1.7;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .split-hero {
+                height: 70vh;
+                margin: 60px 0;
+            }
+
+            .hero-one,
+            .hero-two {
+                height: 70vh;
+            }
+
+            .header-primary {
+                font-size: 2.4em;
+                margin-bottom: 8px;
+                letter-spacing: 0.2px;
+            }
+
+            .header-sub {
+                font-size: 0.9em;
+                letter-spacing: 0.15px;
+                padding: 0 20px;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-primary {
+                font-size: 2em;
+                margin-bottom: 5px;
+                letter-spacing: 0.1px;
+            }
+
+            .header-sub {
+                font-size: 0.8em;
+                letter-spacing: 0.1px;
+                padding: 0 10px;
+                line-height: 1.5;
+            }
+        }
+
+        /* What We Offer Section - Isolated Styles */
+        .features-section {
+            padding: 80px 20px;
+            background: var(--primary-bg);
+        }
+
+        .features-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .features-section .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 600;
+        }
+
+        .features-section .section-header p {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .features-section .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-section .feature-card {
+            text-align: center;
+            padding: 40px 25px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .features-section .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .features-section .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .features-section .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-gold);
+            font-size: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .features-section .feature-card:hover .feature-icon {
+            background: var(--accent-gold);
+            color: var(--primary-bg);
+            transform: scale(1.1);
+        }
+
+        .features-section .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-family: 'Syne', sans-serif;
+        }
+
+        .features-section .feature-card p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .features-section .features-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            .features-section .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Progress Section Styles */
+        .progress-section {
+            padding: 100px 20px;
+            background-color: var(--secondary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .progress-header {
+            margin-bottom: 60px;
+        }
+
+        .progress-header h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .progress-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .progress-item {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition-delay: calc(0.1s * var(--i, 0));
+        }
+
+        .progress-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .progress-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .progress-item:hover .progress-circle {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .progress-circle::before {
+            content: '';
+            position: absolute;
+            width: 84%;
+            height: 84%;
+            border-radius: 50%;
+            background: var(--card-bg);
+            z-index: 1;
+        }
+
+        .circle-progress {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--accent-gold) 0deg, 
+                #333333 0deg
+            );
+            transition: background 0.01s linear;
+        }
+
+        .progress-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .progress-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin: 0 0 2px 0;
+            line-height: 1;
+            font-family: 'Syne', sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .progress-value::after {
+            content: '%';
+            font-size: 1.5rem;
+            margin-left: 2px;
+        }
+
+        .progress-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        @media (max-width: 1024px) {
+            .progress-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .progress-item {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .progress-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .progress-item {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header (EXACT COPY FROM INDEX) -->
+    <header class="header fade-in" id="header">
+        <div class="header-content slide-in-down">
+            <!-- Mobile Toggle Button -->
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <img src="logo.png" alt="Itaria Ceramic Logo" class="logo-img" style="max-width: 180px; height: auto; transition: all 0.3s ease;">
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="nav">
+                <a href="index.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out forwards fadeIn; opacity: 0;">Home</a>
+                <a href="collection.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.1s forwards fadeIn; opacity: 0;">Collection</a>
+                <a href="About.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.2s forwards fadeIn; opacity: 0;">About</a>
+                <a href="catalogue.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.5s forwards fadeIn; opacity: 0;">Downloads</a>
+                <a href="#professional" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.6s forwards fadeIn; opacity: 0;">Professional</a>
+                <a href="contact.html" class="nav-link"
+                    style="color: #ffffff; animation: 0.5s ease-out 0.7s forwards fadeIn; opacity: 0;">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="about.html">About</a>
+        <a href="catalogue.html">Downloads</a>
+        <a href="#professional">Professional</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="gradient-overlay"></div>
+    <section class="about-hero">
+        <video autoplay muted loop playsinline id="heroVideo" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+            <source src="heroabout.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="about-hero-content" style="max-width: 1200px; padding: 0 20px; position: relative; z-index: 2;">
+            <h1 style="color: rgba(255, 255, 255, 0.85);">About</h1>
+            <p style="color: rgba(255, 255, 255, 0.85);">Premier Manufacturers of <span style="color: #ffffff;">Premium</span> Ceramic Tiles in India</p>
+            <a href="#about-content" class="scroll-down-arrow" aria-label="Scroll down" style="display: inline-block; margin-top: 20px; color: #fff; text-decoration: none; opacity: 0; animation: fadeIn 1s ease-out 1s forwards, bounce 2s infinite 1.5s; transform: translateY(10px);">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" style="position: relative; overflow: hidden;">
+        <div class="watermark">Itaria</div>
+        <div class="container">
+            <div class="about-grid" data-animate="fade">
+                <div class="about-image-wrapper">
+                    <div style="position: relative; overflow: hidden; display: inline-block; width: 100%;">
+                        <img src="office.png"
+                            alt="Itaria Ceramic Office" 
+                            class="about-image reveal-on-scroll" 
+                            loading="lazy" 
+                            style="display: block; width: 100%; height: auto; clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+                                   transition: clip-path 1.5s ease-out;">
+                    </div>
+                    <style>
+                        .reveal-on-scroll.revealed {
+                            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
+                        }
+                        
+                        /* Mobile responsive styles for hero section badge */
+                        @media (max-width: 768px) {
+                            .experience-badge {
+                                width: 90px !important;
+                                height: 90px !important;
+                                top: -25px !important;
+                                left: 25px !important;
+                            }
+                            
+                            .badge-content .badge-number {
+                                font-size: 1.8rem !important;
+                            }
+                            
+                            .badge-content .badge-label {
+                                font-size: 0.65rem !important;
+                                margin-bottom: 6px !important;
+                            }
+                            
+                            .badge-content div[style*="font-size: 0.7rem"] {
+                                font-size: 0.6rem !important;
+                            }
+                            
+                            .badge-content div[style*="font-size: 1.2rem"] {
+                                font-size: 0.9rem !important;
+                            }
+                        }
+                        
+                        @media (max-width: 480px) {
+                            .experience-badge {
+                                width: 70px !important;
+                                height: 70px !important;
+                                top: -20px !important;
+                                left: 20px !important;
+                            }
+                            
+                            .badge-content .badge-number {
+                                font-size: 1.4rem !important;
+                                margin-bottom: 3px !important;
+                            }
+                            
+                            .badge-content .badge-label {
+                                font-size: 0.5rem !important;
+                                margin-bottom: 4px !important;
+                                letter-spacing: 0.5px !important;
+                            }
+                            
+                            .badge-content div[style*="height: 1px"] {
+                                width: 50% !important;
+                                margin-bottom: 4px !important;
+                            }
+                            
+                            .badge-content div[style*="font-size: 0.6rem"] {
+                                font-size: 0.5rem !important;
+                            }
+                            
+                            .badge-content div[style*="font-size: 0.9rem"] {
+                                font-size: 0.7rem !important;
+                                margin-top: 1px !important;
+                            }
+                        }
+                    </style>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const image = document.querySelector('.reveal-on-scroll');
+                            
+                            const observer = new IntersectionObserver((entries) => {
+                                entries.forEach(entry => {
+                                    if (entry.isIntersecting) {
+                                        entry.target.classList.add('revealed');
+                                        observer.unobserve(entry.target);
+                                    }
+                                });
+                            }, { threshold: 0.1 });
+                            
+                            observer.observe(image);
+                        });
+                    </script>
+                    <div class="experience-badge" style="background: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <div class="badge-content">
+                            <div class="badge-number" style="font-size: 2.5rem; line-height: 1; margin-bottom: 5px; color: var(--accent-gold); font-weight: 700;">15+</div>
+                            <span class="badge-label" style="font-size: 0.8rem; letter-spacing: 1px; display: block; margin-bottom: 8px; color: var(--text-medium);">YEARS OF EXCELLENCE</span>
+                            <div style="height: 1px; width: 60%; background: rgba(0,0,0,0.1); margin: 0 auto 8px;"></div>
+                            <div style="font-size: 0.7rem; letter-spacing: 0.5px; color: var(--text-medium);">SINCE</div>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-top: 2px; color: var(--accent-gold);">2004</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-content" style="margin: 0 20px;">
+                    <div class="section-label">
+                        <span class="label-dot"></span>
+                        <span class="label-text">About Us</span>
+                    </div>
+                    <h2 class="about-title">About <span>Itaria Ceramic</span>: Premier Tiles Solutions</h2>
+                    <div class="about-text">
+                        <p>At Itaria Ceramic, we specialize in crafting world-class ceramic and porcelain tiles with
+                            exceptional quality. Since our establishment, we have built a reputation for excellence in
+                            tile manufacturing, combining traditional craftsmanship with modern production techniques.</p>
+                        <p>Our extensive collection features premium vitrified tiles, designer ceramics, and innovative
+                            surface solutions. From timeless marble effects to contemporary geometric patterns, we
+                            ensure every tile meets the highest standards of quality and durability for our valued
+                            customers.</p>
+                    </div>
+                    <a href="collection.html" class="know-more-btn">
+                        <span>Know More</span>
+                        <span style="margin-left: 10px; transition: transform 0.3s ease;">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Split Hero Section -->
+    <section class="split-hero fade-in" style="animation-delay: 0.8s; animation-duration: 0.8s;">
+        <div class="hero-one"></div>
+        <div class="hero-two"></div>
+        <h1 class="header-title" style="animation-delay: 1s; animation-duration: 1s; font-family: 'Syne', sans-serif; font-size: 4rem; font-weight: 600; color: #fff; text-align: center; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3); margin: 0; padding: 0 20px;">
+            <span style="display: block; font-size: 2.8rem; font-family: 'Syne', sans-serif;">Itaria Ceramic</span>
+            <span class="header-sub" style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 2.4rem; font-weight: 400; letter-spacing: 0.5px; text-transform: none; color: #ffffff; line-height: 1.3; margin: 10px 0; text-shadow: 0 1px 3px rgba(0,0,0,0.3);">
+                We engineer <span style="color: var(--accent-gold); font-style: italic;">possibility</span>.
+            </span>
+            <span class="header-sub" style="display: block; font-size: 1.8rem; margin-top: 15px; position: relative; padding-top: 10px; font-style: italic; font-weight: 300; color: #f8f8f8; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">
+                <span style="content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 2px; background: var(--accent-gold);"></span>
+                From India
+            </span>
+        </h1>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section" id="stats-section">
+        <div class="stats-container">
+            <div class="stat-item" data-animate="fade">
+                <div class="stat-number" data-count="15">0</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item" data-animate="fade">
+                <div class="stat-number" data-count="500">0</div>
+                <div class="stat-label">Global Clients</div>
+            </div>
+            <div class="stat-item" data-animate="fade">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-label">Cities Served</div>
+            </div>
+            <div class="stat-item" data-animate="fade">
+                <div class="stat-number" data-count="1000">0</div>
+                <div class="stat-label">Products Manufactured</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header" data-animate="fade">
+                <h2>Our Core Values</h2>
+                <p>The foundation of our ceramic excellence</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card" data-animate="up">
+                    <div class="value-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Quality Craftsmanship</h3>
+                    <p>Every tile is meticulously crafted with precision engineering and premium materials to ensure lasting beauty and durability.</p>
+                </div>
+                <div class="value-card" data-animate="up">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Manufacturing Excellence</h3>
+                    <p>State-of-the-art production facilities with advanced technology ensure superior quality and consistency in every ceramic tile.</p>
+                </div>
+                <div class="value-card" data-animate="up">
+                    <div class="value-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Innovation</h3>
+                    <p>Continuously pushing boundaries with cutting-edge designs, patterns, and finishes that transform spaces into masterpieces.</p>
+                </div>
+                <div class="value-card" data-animate="up">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake-angle"></i>
+                    </div>
+                    <h3>Client Partnership</h3>
+                    <p>Building lasting relationships through exceptional service, technical expertise, and commitment to your project success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <div class="progress-container">
+            <div class="progress-header" data-animate="fade">
+                <h2>Our Manufacturing Capabilities</h2>
+                <p>Industry-leading expertise in ceramic tile production</p>
+            </div>
+            <div class="progress-grid">
+                <div class="progress-item" data-animate="up">
+                    <div class="progress-circle">
+                        <div class="circle-progress" data-percent="100"></div>
+                        <div class="progress-content">
+                            <div class="progress-value">0</div>
+                            <div class="progress-label">Premium Collections</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-item" data-animate="up">
+                    <div class="progress-circle">
+                        <div class="circle-progress" data-percent="100"></div>
+                        <div class="progress-content">
+                            <div class="progress-value">0</div>
+                            <div class="progress-label">Design Excellence</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-item" data-animate="up">
+                    <div class="progress-circle">
+                        <div class="circle-progress" data-percent="100"></div>
+                        <div class="progress-content">
+                            <div class="progress-value">0</div>
+                            <div class="progress-label">Supply Chain</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-item" data-animate="up">
+                    <div class="progress-circle">
+                        <div class="circle-progress" data-percent="100"></div>
+                        <div class="progress-content">
+                            <div class="progress-value">0</div>
+                            <div class="progress-label">Global Distribution</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header" data-animate="fade">
+                <h2>Our Ceramic Solutions</h2>
+                <p>Comprehensive tile manufacturing excellence for every space</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card" data-animate="up">
+                    <div class="feature-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Precision Manufacturing</h3>
+                    <p>Advanced production technology and rigorous quality control ensure every tile meets international standards of excellence.</p>
+                </div>
+                
+                <div class="feature-card" data-animate="up" style="--i: 1">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>National Distribution</h3>
+                    <p>Extensive supply chain network delivering premium ceramic tiles to projects across India with guaranteed timelines.</p>
+                </div>
+                
+                <div class="feature-card" data-animate="up" style="--i: 2">
+                    <div class="feature-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3>Diverse Tile Portfolio</h3>
+                    <p>Complete range including vitrified, porcelain, ceramic, and digital wall and floor tiles for residential and commercial spaces.</p>
+                </div>
+                
+                <div class="feature-card" data-animate="up" style="--i: 3">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Technical Support</h3>
+                    <p>Expert consultation and after-sales service for tile selection, installation guidance, and maintenance solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <!-- Certificates Section -->
+    <section class="certificates-section" style="position: relative; overflow: hidden; padding: 100px 0; background-color: #000;">
+        <div class="watermark" style="position: absolute; font-size: 30vw; font-weight: 900; color: rgba(212, 175, 55, 0.5); z-index: 0; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; line-height: 1; font-family: 'Syne', sans-serif;">CERTIFIED</div>
+        <div class="container" style="position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="section-header" data-animate="fade" style="text-align: center; margin-bottom: 60px;">
+                <div class="section-label" style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                    <span class="label-dot" style="display: inline-block; width: 8px; height: 8px; background-color: var(--accent-gold); border-radius: 50%; margin-right: 10px;"></span>
+                    <span class="label-text" style="font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-gold);">Our Accreditations</span>
+                </div>
+                <h2 style="font-family: 'Syne', sans-serif; font-size: 2.8rem; color: var(--text-dark); margin: 0 auto 15px; line-height: 1.2;">
+                    Our <span style="color: var(--accent-gold);">Certifications</span>
+                </h2>
+                <p style="color: var(--text-medium); font-size: 1.1rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Recognized for excellence and quality in the industry
+                </p>
+            </div>
+            <div class="certificates-grid">
+                
+                <!-- Certificate 2 - UDYAM -->
+                <div class="certificate-card" data-animate="up" style="--i: 2">
+                    <div class="certificate-img">
+                        <img src="COILIVA.jpg" alt="CoI>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Registration</h3>
+                        <p>Ministry of Corporate Affairs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Excellence Section -->
+    <!-- ============================================ -->
+<!-- HOW WE DELIVER EXCELLENCE - COMPLETE SECTION -->
+<!-- ============================================ -->
+
+<style>
+/* --- EXCELLENCE SECTION STYLES --- */
+
+.excellence-section {
+    min-height: 100vh;
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.excellence-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Syne', sans-serif;
+    font-size: 20vw;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201, 169, 98, 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: -0.05em;
+}
+
+.excellence-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header */
+.excellence-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+    align-items: end;
+}
+
+.excellence-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #C9A962;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.excellence-label::before {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: #C9A962;
+}
+
+.excellence-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #f5f5f5;
+    margin: 0;
+}
+
+.excellence-title span {
+    color: #C9A962;
+    display: block;
+}
+
+.excellence-intro {
+    font-size: 1.125rem;
+    color: #888;
+    line-height: 1.8;
+    max-width: 500px;
+    justify-self: end;
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+}
+
+/* Grid Layout */
+.excellence-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Methodology Cards */
+.methodology-card {
+    background: #141414;
+    border: 1px solid #1a1a1a;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.methodology-card:hover {
+    border-color: #C9A962;
+    transform: translateY(-5px);
+}
+
+.methodology-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #C9A962 0%, transparent 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.methodology-card:hover::before {
+    transform: scaleX(1);
+}
+
+.method-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 6rem;
+    font-weight: 800;
+    color: rgba(201, 169, 98, 0.1);
+    line-height: 1;
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    pointer-events: none;
+}
+
+.method-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.method-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(201, 169, 98, 0.1);
+    border: 1px solid #C9A962;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #C9A962;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.method-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: #C9A962;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.methodology-card:hover .method-icon::after {
+    width: 80px;
+    height: 80px;
+}
+
+.method-icon span {
+    position: relative;
+    z-index: 2;
+    transition: color 0.4s ease;
+}
+
+.methodology-card:hover .method-icon span {
+    color: #050505;
+}
+
+.method-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #f5f5f5;
+}
+
+.method-header p {
+    color: #888;
+    line-height: 1.8;
+    max-width: 80%;
+    font-size: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+}
+
+/* Sub Cards Grid */
+.method-sub-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.method-sub-grid.compact {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.method-sub-card {
+    background: #0a0a0a;
+    border: 1px solid #1a1a1a;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.method-sub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #C9A962;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.method-sub-card:hover {
+    transform: translateY(-3px);
+    border-color: #C9A962;
+    background: #1a1a1a;
+}
+
+.method-sub-card:hover::before {
+    transform: scaleX(1);
+}
+
+.sub-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #8B7355;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.method-sub-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #f5f5f5;
+}
+
+.method-sub-card p {
+    color: #888;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.sub-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.sub-tags span {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #C9A962;
+    padding: 0.2rem 0.5rem;
+    background: rgba(201, 169, 98, 0.1);
+    border: 1px solid rgba(201, 169, 98, 0.2);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Bottom Metrics */
+.bottom-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.metric-card {
+    background: #141414;
+    border: 1px solid #1a1a1a;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.metric-card:hover {
+    background: #1a1a1a;
+    transform: translateY(-5px);
+}
+
+.metric-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #C9A962;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.metric-card:hover::after {
+    transform: scaleX(1);
+}
+
+.metric-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #C9A962;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Process Timeline */
+.process-viz {
+    margin-top: 4rem;
+    padding: 4rem;
+    background: #141414;
+    border: 1px solid #1a1a1a;
+    position: relative;
+}
+
+.process-viz-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.process-viz-header h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #f5f5f5;
+}
+
+.process-viz-header p {
+    color: #888;
+    font-size: 0.9rem;
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg, #C9A962 0%, #C9A962 var(--progress, 0%), #1a1a1a var(--progress, 0%), #1a1a1a 100%);
+    transform: translateY(-50%);
+}
+
+.timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.step-dot {
+    width: 20px;
+    height: 20px;
+    background: #0a0a0a;
+    border: 2px solid #C9A962;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.step-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 8px;
+    height: 8px;
+    background: #C9A962;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.timeline-step:hover .step-dot::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.timeline-step.active .step-dot {
+    background: #C9A962;
+}
+
+.step-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #888;
+    text-align: center;
+    max-width: 100px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .method-sub-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .method-sub-grid.compact {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .excellence-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .excellence-intro {
+        justify-self: start;
+        max-width: 100%;
+    }
+    
+    .method-sub-grid,
+    .method-sub-grid.compact {
+        grid-template-columns: 1fr;
+    }
+    
+    .bottom-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .timeline::before {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .excellence-section {
+        padding: 4rem 2rem;
+    }
+    
+    .excellence-bg-text {
+        font-size: 25vw;
+    }
+    
+    .methodology-card {
+        padding: 2rem;
+    }
+    
+    .method-number {
+        font-size: 3rem;
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .method-header p {
+        max-width: 100%;
+    }
+    
+    .process-viz {
+        padding: 2rem;
+    }
+    
+    .metric-value {
+        font-size: 2.5rem;
+    }
+}
+</style>
+
+<!-- HTML STRUCTURE -->
+<section class="excellence-section" id="excellence">
+    <div class="excellence-bg-text">EXCELLENCE</div>
+    
+    <div class="excellence-container">
+        <!-- Header -->
+        <div class="excellence-header">
+            <div>
+                <div class="excellence-label">Our Methodology</div>
+                <h2 class="excellence-title">
+                    How We Deliver
+                    <span>Excellence</span>
+                </h2>
+            </div>
+            <p class="excellence-intro">
+                From raw material selection to final installation support, our process is engineered for perfection. We don't just ship tiles; we deliver certainty.
+            </p>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="excellence-grid">
+            
+            <!-- Card 1: Precision Manufacturing - EXPANDED -->
+            <div class="methodology-card">
+                <div class="method-number">01</div>
+                <div class="method-header">
+                    <div class="method-icon">
+                        <span>◈</span>
+                    </div>
+                    <h3>Precision Manufacturing</h3>
+                    <p>Our Morbi facility combines Italian engineering with Indian craftsmanship. 1200°C kilns, 4500-ton presses, and digital inkjet printers with 400 DPI resolution ensure every tile meets global standards.</p>
+                </div>
+                
+                <div class="method-sub-grid">
+                    <div class="method-sub-card">
+                        <div class="sub-num">01.1</div>
+                        <h4>Raw Curation</h4>
+                        <p>Silica, clay, and feldspar from certified Gujarat & Rajasthan mines. XRF analysis ensures chemical purity before sub-micron grinding.</p>
+                        <div class="sub-tags">
+                            <span>&lt;45μm Particle</span>
+                            <span>6-7% Moisture</span>
+                        </div>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">01.2</div>
+                        <h4>Spray Drying</h4>
+                        <p>10-meter dryers atomize slip into granules. Sacmi Continua+ presses apply 4500 tons—750 elephants per square meter.</p>
+                        <div class="sub-tags">
+                            <span>4500T Force</span>
+                            <span>2.4g/cm³ Density</span>
+                        </div>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">01.3</div>
+                        <h4>Digital Decoration</h4>
+                        <p>System 8-channel inkjet printers at 400 DPI. Italian pigments bond molecularly for decades of fade resistance.</p>
+                        <div class="sub-tags">
+                            <span>400 DPI</span>
+                            <span>8-Channel</span>
+                        </div>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">01.4</div>
+                        <h4>Firing & Vitrification</h4>
+                        <p>120-meter kilns at 1200°C ±2°C. Quartz dissolves, feldspar forms glass, rapid cooling locks density.</p>
+                        <div class="sub-tags">
+                            <span>1200°C</span>
+                            <span>&lt;0.05% Absorption</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Quality Control - EXPANDED -->
+            <div class="methodology-card">
+                <div class="method-number">02</div>
+                <div class="method-header">
+                    <div class="method-icon">
+                        <span>◉</span>
+                    </div>
+                    <h3>Quality Control</h3>
+                    <p>Triple-inspection protocol ensures zero defect tolerance. We don't inspect quality; we engineer it into every molecule.</p>
+                </div>
+                
+                <div class="method-sub-grid compact">
+                    <div class="method-sub-card">
+                        <div class="sub-num">02.1</div>
+                        <h4>Raw Material Testing</h4>
+                        <p>XRF spectrometry analyzes chemical composition. Moisture content, particle size distribution, and plasticity index verified before production.</p>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">02.2</div>
+                        <h4>In-Process Monitoring</h4>
+                        <p>Real-time density checks, dimensional laser scanning, and visual defect detection at every production stage.</p>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">02.3</div>
+                        <h4>Pre-Shipment Verification</h4>
+                        <p>Mohs hardness, abrasion resistance, thermal shock, and chemical exposure testing. ISO 9001:2015 certified protocols.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Secure Packaging - EXPANDED -->
+            <div class="methodology-card">
+                <div class="method-number">03</div>
+                <div class="method-header">
+                    <div class="method-icon">
+                        <span>◆</span>
+                    </div>
+                    <h3>Secure Packaging</h3>
+                    <p>Custom-engineered protection systems prevent breakage across continents. Your tiles arrive as pristine as they left our kilns.</p>
+                </div>
+                
+                <div class="method-sub-grid compact">
+                    <div class="method-sub-card">
+                        <div class="sub-num">03.1</div>
+                        <h4>Internal Protection</h4>
+                        <p>PE foam inserts cradle each tile. Corrugated separators prevent edge contact. Moisture-barrier shrink wrap eliminates humidity damage.</p>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">03.2</div>
+                        <h4>Crate Engineering</h4>
+                        <p>ISPM-15 certified wooden crates with reinforced corners. Shock-absorbent base padding. Steel banding for structural integrity.</p>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">03.3</div>
+                        <h4>Container Optimization</h4>
+                        <p>Custom loading plans maximize space utilization. Dunnage bags prevent shifting. Desiccant controls humidity during ocean transit.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Logistics Mastery - EXPANDED -->
+            <div class="methodology-card">
+                <div class="method-number">04</div>
+                <div class="method-header">
+                    <div class="method-icon">
+                        <span>◊</span>
+                    </div>
+                    <h3>Logistics Mastery</h3>
+                    <p>Just-in-time delivery to 50+ countries. Real-time tracking, customs clearance support, and white-glove handling from Morbi to your site.</p>
+                </div>
+                
+                <div class="method-sub-grid compact">
+                    <div class="method-sub-card">
+                        <div class="sub-num">04.1</div>
+                        <h4>Route Optimization</h4>
+                        <p>AI-powered shipping algorithms select optimal ports and carriers. Multi-modal options: sea, air, and land freight coordination.</p>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">04.2</div>
+                        <h4>Documentation Excellence</h4>
+                        <p>Complete export documentation: COO, CI, PL, BL, and certificates. Customs pre-clearance reduces port delays by 70%.</p>
+                    </div>
+                    <div class="method-sub-card">
+                        <div class="sub-num">04.3</div>
+                        <h4>Last-Mile Coordination</h4>
+                        <p>Delivery scheduling aligns with construction timelines. Unloading supervision ensures damage-free receipt. Installation support available.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Metrics -->
+            <div class="bottom-row">
+                <div class="metric-card">
+                    <div class="metric-value" data-count="0.05">0%</div>
+                    <div class="metric-label">Water Absorption</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-count="99.8">0%</div>
+                    <div class="metric-label">Delivery Success</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" data-count="4500">0</div>
+                    <div class="metric-label">Tons Pressure</div>
+                </div>
+            </div>
+
+            <!-- Process Timeline -->
+            <div class="process-viz">
+                <div class="process-viz-header">
+                    <h3>From Order to Installation</h3>
+                    <p>Transparent process, predictable timelines</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-step active">
+                        <div class="step-dot"></div>
+                        <span class="step-label">Consultation</span>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <span class="step-label">Sampling</span>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <span class="step-label">Production</span>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <span class="step-label">QC & Pack</span>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <span class="step-label">Shipping</span>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="step-dot"></div>
+                        <span class="step-label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GSAP ANIMATIONS -->
+<script>
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Background parallax
+gsap.to('.excellence-bg-text', {
+    yPercent: 20,
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".excellence-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+    }
+});
+
+// Header animations
+gsap.from('.excellence-label', {
+    opacity: 0,
+    x: -30,
+    duration: 0.8,
+    scrollTrigger: {
+        trigger: ".excellence-header",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+gsap.from('.excellence-title', {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    delay: 0.2,
+    scrollTrigger: {
+        trigger: ".excellence-header",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+gsap.from('.excellence-intro', {
+    opacity: 0,
+    x: 30,
+    duration: 0.8,
+    delay: 0.4,
+    scrollTrigger: {
+        trigger: ".excellence-header",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+// Methodology cards stagger
+gsap.from('.methodology-card', {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.2,
+    scrollTrigger: {
+        trigger: ".excellence-grid",
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+// Sub cards stagger
+gsap.from('.method-sub-card', {
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    stagger: 0.1,
+    scrollTrigger: {
+        trigger: ".method-sub-grid",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+// Metric cards with counters
+const metricCards = document.querySelectorAll('.metric-card');
+metricCards.forEach((card, index) => {
+    const valueEl = card.querySelector('.metric-value');
+    const target = parseFloat(valueEl.getAttribute('data-count'));
+    
+    gsap.from(card, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        delay: index * 0.1,
+        scrollTrigger: {
+            trigger: ".bottom-row",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+        }
+    });
+
+    ScrollTrigger.create({
+        trigger: card,
+        start: "top 80%",
+        onEnter: () => {
+            gsap.to({ val: 0 }, {
+                val: target,
+                duration: 2,
+                ease: "power2.out",
+                onUpdate: function() {
+                    if (target < 1) {
+                        valueEl.textContent = this.targets()[0].val.toFixed(2) + '%';
+                    } else {
+                        valueEl.textContent = Math.round(this.targets()[0].val).toLocaleString();
+                    }
+                }
+            });
+        },
+        once: true
+    });
+});
+
+// Process viz animations
+gsap.from('.process-viz', {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: {
+        trigger: ".process-viz",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+gsap.from('.timeline-step', {
+    opacity: 0,
+    y: 20,
+    duration: 0.6,
+    stagger: 0.1,
+    scrollTrigger: {
+        trigger: ".timeline",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+    }
+});
+
+// Timeline progress animation
+gsap.to('.timeline', {
+    '--progress': '100%',
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".process-viz",
+        start: "top 60%",
+        end: "bottom 40%",
+        scrub: 1
+    }
+});
+
+// Timeline hover interactions
+const steps = document.querySelectorAll('.timeline-step');
+steps.forEach((step, index) => {
+    step.addEventListener('mouseenter', () => {
+        steps.forEach((s, i) => {
+            if (i <= index) {
+                s.classList.add('active');
+            } else {
+                s.classList.remove('active');
+            }
+        });
+    });
+});
+</script>
+
+<!-- ============================================ -->
+<!-- OUR NETWORK - 3D GOLDEN GLOBE EDITION -->
+<!-- ============================================ -->
+
+<style>
+/* --- NETWORK SECTION STYLES --- */
+
+:root {
+    --void: #050505;
+    --charcoal: #0a0a0a;
+    --graphite: #141414;
+    --mist: #1a1a1a;
+    --gold: #C9A962;
+    --gold-bright: #E5C876;
+    --gold-dim: #8B7355;
+    --white: #f5f5f5;
+    --gray: #888;
+}
+
+.network-section {
+    min-height: 100vh;
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--void);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Animated Grid Background */
+.network-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(201, 169, 98, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201, 169, 98, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: gridMove 25s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(80px, 80px); }
+}
+
+/* Floating Gold Particles */
+.gold-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.6;
+    box-shadow: 0 0 10px var(--gold);
+    animation: float 8s ease-in-out infinite;
+}
+
+.gold-particle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+.gold-particle:nth-child(2) { top: 25%; left: 85%; animation-delay: 1s; }
+.gold-particle:nth-child(3) { top: 65%; left: 15%; animation-delay: 2s; }
+.gold-particle:nth-child(4) { top: 75%; left: 80%; animation-delay: 3s; }
+.gold-particle:nth-child(5) { top: 40%; left: 5%; animation-delay: 4s; }
+.gold-particle:nth-child(6) { top: 55%; left: 95%; animation-delay: 5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+    50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+}
+
+.network-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Header - Asymmetric */
+.network-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: start;
+}
+
+.network-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.network-label::before {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.network-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--white);
+    margin: 0;
+}
+
+.network-title span {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--gold);
+    display: block;
+}
+
+.network-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-self: end;
+    padding-top: 4rem;
+}
+
+.stat-block {
+    text-align: right;
+    position: relative;
+}
+
+.stat-block::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -1rem;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.stat-number-lg {
+    font-family: 'Syne', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+}
+
+.stat-desc {
+    font-size: 0.875rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* 3D Golden Globe - Centerpiece */
+.globe-showcase {
+    position: relative;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6rem;
+    perspective: 1000px;
+}
+
+.globe-3d {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: globeRotate 30s linear infinite;
+}
+
+@keyframes globeRotate {
+    0% { transform: rotateY(0deg) rotateX(10deg); }
+    100% { transform: rotateY(360deg) rotateX(10deg); }
+}
+
+/* Globe Core - Golden Sphere */
+.globe-core {
+    position: absolute;
+    inset: 50px;
+    border-radius: 50%;
+    background: 
+        radial-gradient(circle at 30% 30%, var(--gold-bright) 0%, var(--gold) 40%, var(--gold-dim) 100%);
+    box-shadow: 
+        0 0 60px rgba(201, 169, 98, 0.4),
+        inset -20px -20px 60px rgba(0, 0, 0, 0.3),
+        inset 20px 20px 40px rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d;
+}
+
+/* Continents - Abstract Golden Shapes */
+.continent {
+    position: absolute;
+    background: var(--gold-bright);
+    opacity: 0.9;
+    box-shadow: 0 0 20px var(--gold);
+}
+
+/* Simplified continent shapes */
+.continent.asia {
+    width: 120px;
+    height: 80px;
+    top: 30%;
+    left: 60%;
+    clip-path: polygon(20% 0%, 80% 10%, 100% 60%, 60% 100%, 0% 80%, 10% 40%);
+}
+
+.continent.europe {
+    width: 60px;
+    height: 50px;
+    top: 25%;
+    left: 45%;
+    clip-path: polygon(0% 30%, 50% 0%, 100% 40%, 80% 100%, 20% 90%);
+}
+
+.continent.africa {
+    width: 70px;
+    height: 100px;
+    top: 40%;
+    left: 42%;
+    clip-path: polygon(30% 0%, 70% 5%, 90% 50%, 60% 100%, 20% 90%, 10% 40%);
+}
+
+.continent.americas {
+    width: 80px;
+    height: 120px;
+    top: 35%;
+    left: 15%;
+    clip-path: polygon(40% 0%, 70% 20%, 60% 60%, 80% 90%, 30% 100%, 0% 50%, 20% 20%);
+}
+
+.continent.australia {
+    width: 50px;
+    height: 40px;
+    top: 65%;
+    left: 75%;
+    clip-path: polygon(20% 20%, 80% 10%, 100% 60%, 50% 100%, 0% 70%);
+}
+
+/* Orbital Rings */
+.orbit-ring {
+    position: absolute;
+    border: 1px solid rgba(201, 169, 98, 0.3);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+}
+
+.orbit-ring:nth-child(1) {
+    inset: 0;
+    border-color: rgba(201, 169, 98, 0.2);
+    animation: orbitRotate1 20s linear infinite;
+}
+
+.orbit-ring:nth-child(2) {
+    inset: 40px;
+    border-color: rgba(201, 169, 98, 0.4);
+    animation: orbitRotate2 15s linear infinite;
+    border-top-color: transparent;
+}
+
+.orbit-ring:nth-child(3) {
+    inset: 80px;
+    border-color: rgba(201, 169, 98, 0.6);
+    animation: orbitRotate3 10s linear infinite;
+    border-bottom-color: transparent;
+}
+
+.orbit-ring:nth-child(4) {
+    inset: 120px;
+    border: 2px solid var(--gold);
+    animation: orbitRotate4 8s linear infinite;
+    box-shadow: 0 0 30px rgba(201, 169, 98, 0.3);
+}
+
+@keyframes orbitRotate1 {
+    0% { transform: rotateX(70deg) rotateZ(0deg); }
+    100% { transform: rotateX(70deg) rotateZ(360deg); }
+}
+
+@keyframes orbitRotate2 {
+    0% { transform: rotateX(60deg) rotateY(20deg) rotateZ(0deg); }
+    100% { transform: rotateX(60deg) rotateY(20deg) rotateZ(-360deg); }
+}
+
+@keyframes orbitRotate3 {
+    0% { transform: rotateX(80deg) rotateY(-30deg) rotateZ(0deg); }
+    100% { transform: rotateX(80deg) rotateY(-30deg) rotateZ(360deg); }
+}
+
+@keyframes orbitRotate4 {
+    0% { transform: rotateX(45deg) rotateZ(0deg); }
+    100% { transform: rotateX(45deg) rotateZ(-360deg); }
+}
+
+/* Satellite Nodes on Rings */
+.satellite {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--gold);
+    transform: translateZ(20px);
+}
+
+.satellite::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    animation: satellitePulse 2s ease-in-out infinite;
+}
+
+@keyframes satellitePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Ring 1 Satellites */
+.satellite.s1 { top: 0; left: 50%; transform: translate(-50%, -50%); }
+.satellite.s2 { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+.satellite.s3 { left: 0; top: 50%; transform: translate(-50%, -50%); }
+.satellite.s4 { right: 0; top: 50%; transform: translate(50%, -50%); }
+
+/* Ring 2 Satellites */
+.satellite.s5 { top: 10%; right: 10%; }
+.satellite.s6 { bottom: 10%; left: 10%; }
+.satellite.s7 { top: 10%; left: 20%; }
+.satellite.s8 { bottom: 20%; right: 15%; }
+
+/* Ring 3 Satellites */
+.satellite.s9 { top: 5%; left: 30%; }
+.satellite.s10 { bottom: 5%; right: 30%; }
+
+/* Ring 4 Satellites */
+.satellite.s11 { top: 0; left: 50%; transform: translate(-50%, -50%); }
+.satellite.s12 { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+
+/* Glow Effect Behind Globe */
+.globe-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201, 169, 98, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Location Labels Around Globe */
+.globe-label {
+    position: absolute;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.5rem 1rem;
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--gold);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.globe-showcase:hover .globe-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.globe-label.morbi { top: 20%; left: 20%; transition-delay: 0.1s; }
+.globe-label.dubai { top: 30%; right: 15%; transition-delay: 0.2s; }
+.globe-label.london { top: 15%; left: 40%; transition-delay: 0.3s; }
+.globe-label.newyork { top: 25%; left: 10%; transition-delay: 0.4s; }
+.globe-label.singapore { bottom: 25%; right: 20%; transition-delay: 0.5s; }
+
+/* Regional Hubs Grid */
+.hubs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+}
+
+.hub-card {
+    background: var(--charcoal);
+    border: 1px solid var(--mist);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.hub-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.hub-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    background: var(--graphite);
+}
+
+.hub-card:hover::before {
+    transform: scaleX(1);
+}
+
+.hub-region {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.hub-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.hub-territories {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.hub-metric {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--mist);
+}
+
+.hub-metric-value {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.hub-metric-label {
+    font-size: 0.75rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Network Architecture */
+.network-arch {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    background: var(--charcoal);
+    border: 1px solid var(--mist);
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 6rem;
+}
+
+.arch-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.arch-content > p {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.arch-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.arch-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    background: var(--graphite);
+    border: 1px solid var(--mist);
+    transition: all 0.3s ease;
+}
+
+.arch-item:hover {
+    border-color: var(--gold);
+    transform: translateX(10px);
+}
+
+.arch-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(201, 169, 98, 0.1);
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.arch-text h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.arch-text p {
+    color: var(--gray);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Partner Strip */
+.partner-strip {
+    padding: 3rem 0;
+    border-top: 1px solid var(--mist);
+    border-bottom: 1px solid var(--mist);
+    overflow: hidden;
+    margin-bottom: 6rem;
+}
+
+.partner-label {
+    text-align: center;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.partner-marquee {
+    display: flex;
+    width: fit-content;
+    animation: marquee 30s linear infinite;
+}
+
+.partner-item {
+    padding: 0 4rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--gray);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.partner-item:hover {
+    color: var(--gold);
+    -webkit-text-stroke: 1px var(--gold);
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* CTA Box */
+.network-cta {
+    padding: 4rem;
+    background: linear-gradient(135deg, var(--graphite) 0%, var(--charcoal) 100%);
+    border: 1px solid var(--mist);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.network-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: var(--gold);
+}
+
+.cta-text {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.cta-text span {
+    color: var(--gold);
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gold);
+    transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+}
+
+.cta-btn:hover {
+    color: var(--void);
+}
+
+.cta-btn:hover::before {
+    left: 0;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .hubs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .network-arch {
+        grid-template-columns: 1fr;
+    }
+    
+    .globe-3d {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .globe-core {
+        inset: 40px;
+    }
+    
+    .continent.asia { transform: scale(0.8); }
+    .continent.europe { transform: scale(0.8); }
+    .continent.africa { transform: scale(0.8); }
+    .continent.americas { transform: scale(0.8); }
+    .continent.australia { transform: scale(0.8); }
+}
+
+@media (max-width: 1024px) {
+    .network-header {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .network-stats {
+        flex-direction: row;
+        justify-self: start;
+        padding-top: 0;
+    }
+    
+    .stat-block {
+        text-align: left;
+    }
+    
+    .stat-block::before {
+        left: 0;
+        right: auto;
+    }
+    
+    .globe-showcase {
+        height: 500px;
+    }
+    
+    .globe-3d {
+        width: 350px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .network-section {
+        padding: 4rem 2rem;
+    }
+    
+    .network-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .network-stats {
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+    
+    .stat-block {
+        text-align: center;
+    }
+    
+    .stat-block::before {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+    }
+    
+    .hubs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .network-arch {
+        padding: 2rem;
+    }
+    
+    .arch-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .globe-showcase {
+        height: 400px;
+    }
+    
+    .globe-3d {
+        width: 280px;
+        height: 280px;
+    }
+    
+    .globe-core {
+        inset: 30px;
+    }
+    
+    .continent {
+        transform: scale(0.6);
+    }
+    
+    .network-cta {
+        padding: 2rem;
+    }
+    
+    .cta-text {
+        font-size: 1.5rem;
+    }
+    
+    .globe-label {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .network-section {
+        padding: 2rem 1rem;
+    }
+    
+    .network-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    
+    .stat-number-lg {
+        font-size: 2.5rem;
+    }
+    
+    .stat-desc {
+        font-size: 0.75rem;
+    }
+    
+    .globe-showcase {
+        height: 300px;
+    }
+    
+    .globe-3d {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .globe-core {
+        inset: 20px;
+    }
+    
+    .continent {
+        transform: scale(0.4);
+    }
+    
+    .orbit-ring:nth-child(4) {
+        inset: 80px;
+    }
+    
+    .satellite {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .hub-card {
+        padding: 1.25rem;
+    }
+    
+    .hub-name {
+        font-size: 1.125rem;
+    }
+    
+    .hub-territories {
+        font-size: 0.8rem;
+    }
+    
+    .hub-metric-value {
+        font-size: 1.5rem;
+    }
+    
+    .network-arch {
+        padding: 1.5rem 1rem;
+    }
+    
+    .arch-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .arch-content > p {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+    
+    .arch-item {
+        padding: 1.25rem;
+    }
+    
+    .arch-text h4 {
+        font-size: 1rem;
+    }
+    
+    .arch-text p {
+        font-size: 0.85rem;
+    }
+    
+    .network-cta {
+        padding: 1.5rem 1rem;
+    }
+    
+    .cta-text {
+        font-size: 1.125rem;
+    }
+    
+    .cta-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .partner-item {
+        padding: 0 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .gold-particle {
+        width: 1.5px;
+        height: 1.5px;
+    }
+}
+
+</style>
+
+<!-- HTML STRUCTURE -->
+<section class="network-section" id="network">
+    <!-- Animated Background -->
+    <div class="network-grid-bg"></div>
+    <div class="gold-particle"></div>
+    <div class="gold-particle"></div>
+    <div class="gold-particle"></div>
+    <div class="gold-particle"></div>
+    <div class="gold-particle"></div>
+    <div class="gold-particle"></div>
+    
+    <div class="network-container">
+        <!-- Header -->
+        <div class="network-header">
+            <div>
+                <div class="network-label">Global Infrastructure</div>
+                <h2 class="network-title">
+                    Our Network
+                    <span>Worldwide</span>
+                </h2>
+            </div>
+            
+            <div class="network-stats">
+                <div class="stat-block">
+                    <span class="stat-number-lg" data-count="50">50</span>
+                    <span class="stat-desc">Countries Served</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number-lg" data-count="6">6</span>
+                    <span class="stat-desc">Regional Hubs</span>
+                </div>
+                <div class="stat-block">
+                    <span class="stat-number-lg" data-count="120">120</span>
+                    <span class="stat-desc">Partner Ports</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Golden Globe Showcase -->
+        <div class="globe-showcase">
+            <div class="globe-glow"></div>
+            
+            <div class="globe-3d">
+                <!-- Orbital Rings -->
+                <div class="orbit-ring">
+                    <div class="satellite s1"></div>
+                    <div class="satellite s2"></div>
+                    <div class="satellite s3"></div>
+                    <div class="satellite s4"></div>
+                </div>
+                <div class="orbit-ring">
+                    <div class="satellite s5"></div>
+                    <div class="satellite s6"></div>
+                    <div class="satellite s7"></div>
+                    <div class="satellite s8"></div>
+                </div>
+                <div class="orbit-ring">
+                    <div class="satellite s9"></div>
+                    <div class="satellite s10"></div>
+                </div>
+                <div class="orbit-ring">
+                    <div class="satellite s11"></div>
+                    <div class="satellite s12"></div>
+                </div>
+                
+                <!-- Globe Core with Continents -->
+                <div class="globe-core">
+                    <div class="continent asia"></div>
+                    <div class="continent europe"></div>
+                    <div class="continent africa"></div>
+                    <div class="continent americas"></div>
+                    <div class="continent australia"></div>
+                </div>
+            </div>
+            
+            <!-- Location Labels -->
+            <div class="globe-label morbi">Morbi HQ</div>
+            <div class="globe-label dubai">Dubai</div>
+            <div class="globe-label london">London</div>
+            <div class="globe-label newyork">New York</div>
+            <div class="globe-label singapore">Singapore</div>
+        </div>
+
+        <!-- Regional Hubs Grid -->
+        <div class="hubs-grid">
+            <div class="hub-card">
+                <div class="hub-region">Middle East Hub</div>
+                <h3 class="hub-name">Dubai</h3>
+                <p class="hub-territories">UAE • Saudi Arabia • Qatar • Kuwait • Bahrain • Oman</p>
+                <div class="hub-metric">
+                    <span class="hub-metric-value">72h</span>
+                    <span class="hub-metric-label">Avg Delivery</span>
+                </div>
+            </div>
+            
+            <div class="hub-card">
+                <div class="hub-region">Europe Hub</div>
+                <h3 class="hub-name">London</h3>
+                <p class="hub-territories">UK • Germany • France • Netherlands • Italy • Spain</p>
+                <div class="hub-metric">
+                    <span class="hub-metric-value">14</span>
+                    <span class="hub-metric-label">Days Sea</span>
+                </div>
+            </div>
+            
+            <div class="hub-card">
+                <div class="hub-region">Americas Hub</div>
+                <h3 class="hub-name">New York</h3>
+                <p class="hub-territories">USA • Canada • Brazil • Mexico • Argentina • Chile</p>
+                <div class="hub-metric">
+                    <span class="hub-metric-value">18</span>
+                    <span class="hub-metric-label">Days Transit</span>
+                </div>
+            </div>
+            
+            <div class="hub-card">
+                <div class="hub-region">Asia Pacific Hub</div>
+                <h3 class="hub-name">Singapore</h3>
+                <p class="hub-territories">Singapore • Australia • Malaysia • Thailand • Indonesia</p>
+                <div class="hub-metric">
+                    <span class="hub-metric-value">8</span>
+                    <span class="hub-metric-label">Days Regional</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Network Architecture -->
+        <div class="network-arch">
+            <div class="arch-content">
+                <h3>Network Architecture</h3>
+                <p>Our logistics infrastructure is designed for resilience and speed. Multi-modal capabilities ensure your tiles arrive on time, every time, regardless of global disruptions.</p>
+                
+                <div class="arch-features">
+                    <div class="arch-item">
+                        <div class="arch-icon">◈</div>
+                        <div class="arch-text">
+                            <h4>Multi-Modal Flexibility</h4>
+                            <p>Sea, air, and land freight options with dynamic routing based on capacity and urgency.</p>
+                        </div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-icon">◉</div>
+                        <div class="arch-text">
+                            <h4>Real-Time Tracking</h4>
+                            <p>Container-level GPS tracking with predictive ETAs and automated delay alerts.</p>
+                        </div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-icon">◆</div>
+                        <div class="arch-text">
+                            <h4>Customs Pre-Clearance</h4>
+                            <p>Documentation prepared in advance reduces port dwell time by 70%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arch-content">
+                <h3>Global Reach Metrics</h3>
+                <p>Strategic positioning across four continents enables rapid response to market demands and reduces shipping complexities.</p>
+                
+                <div class="arch-features">
+                    <div class="arch-item">
+                        <div class="arch-icon">◊</div>
+                        <div class="arch-text">
+                            <h4>Container Optimization</h4>
+                            <p>AI-powered loading algorithms maximize space utilization, reducing per-tile shipping costs.</p>
+                        </div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-icon">◇</div>
+                        <div class="arch-text">
+                            <h4>Climate Control</h4>
+                            <p>Specialized containers with humidity regulation protect tiles during ocean transit.</p>
+                        </div>
+                    </div>
+                    <div class="arch-item">
+                        <div class="arch-icon">○</div>
+                        <div class="arch-text">
+                            <h4>Insurance Coverage</h4>
+                            <p>Comprehensive cargo insurance with streamlined claims processing for complete peace of mind.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Partner Strip -->
+        <div class="partner-strip">
+            <div class="partner-label">Trusted Logistics Partners</div>
+            <div class="partner-marquee">
+                <div class="partner-item">MAERSK</div>
+                <div class="partner-item">MSC</div>
+                <div class="partner-item">CMA CGM</div>
+                <div class="partner-item">HAPAG-LLOYD</div>
+                <div class="partner-item">ONE</div>
+                <div class="partner-item">EVERGREEN</div>
+                <div class="partner-item">MAERSK</div>
+                <div class="partner-item">MSC</div>
+                <div class="partner-item">CMA CGM</div>
+                <div class="partner-item">HAPAG-LLOYD</div>
+                <div class="partner-item">ONE</div>
+                <div class="partner-item">EVERGREEN</div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="network-cta">
+            <h3 class="cta-text">Ready to ship to <span>your region?</span></h3>
+            <a href="contact.html" class="cta-btn">
+                <span>Get Shipping Quote</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- GSAP ANIMATIONS -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Background parallax
+gsap.to('.network-grid-bg', {
+    yPercent: 10,
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.network-section',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: true
+    }
+});
+
+// Header animations
+gsap.from('.network-label', {
+    opacity: 0,
+    x: -30,
+    duration: 0.8,
+    scrollTrigger: {
+        trigger: '.network-header',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+gsap.from('.network-title', {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    delay: 0.2,
+    scrollTrigger: {
+        trigger: '.network-header',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+// Stats counter animation
+const statNumbersone = document.querySelectorAll('.stat-number-lg');
+statNumbersone.forEach(stat => {
+    const target = parseInt(stat.getAttribute('data-count'));
+    
+    ScrollTrigger.create({
+        trigger: stat,
+        start: 'top 80%',
+        onEnter: () => {
+            gsap.to({ val: 0 }, {
+                val: target,
+                duration: 2,
+                ease: 'power2.out',
+                onUpdate: function() {
+                    stat.textContent = Math.round(this.targets()[0].val) + '+';
+                }
+            });
+        },
+        once: true
+    });
+    
+    gsap.from(stat, {
+        opacity: 0,
+        scale: 0.5,
+        duration: 0.8,
+        scrollTrigger: {
+            trigger: '.network-stats',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+        }
+    });
+});
+
+// 3D Globe entrance animation
+gsap.from('.globe-3d', {
+    opacity: 0,
+    scale: 0.5,
+    rotationY: -180,
+    duration: 1.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+        trigger: '.globe-showcase',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+gsap.from('.globe-glow', {
+    opacity: 0,
+    scale: 0,
+    duration: 1,
+    delay: 0.5,
+    scrollTrigger: {
+        trigger: '.globe-showcase',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+// Hub cards stagger
+gsap.from('.hub-card', {
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    stagger: 0.15,
+    scrollTrigger: {
+        trigger: '.hubs-grid',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+// Architecture section
+gsap.from('.network-arch > *', {
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    stagger: 0.2,
+    scrollTrigger: {
+        trigger: '.network-arch',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+// CTA animation
+gsap.from('.network-cta', {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: {
+        trigger: '.network-cta',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+    }
+});
+
+// Slow rotation on scroll
+gsap.to('.globe-3d', {
+    rotationY: '+=60',
+    ease: 'none',
+    scrollTrigger: {
+        trigger: '.globe-showcase',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 2
+    }
+});
+</script>
+    
+    <style>
+        .certificates-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .certificate-card {
+            flex: 1;
+            min-width: 220px;
+            max-width: 300px;
+        }
+        
+        @media (max-width: 1024px) {
+            .certificates-grid {
+                flex-wrap: wrap;
+            }
+            .certificate-card {
+                flex: 0 0 calc(50% - 20px);
+                max-width: calc(50% - 20px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .certificate-card {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+        
+        .certificate-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+        
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.05);
+        }
+        
+        .certificate-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .certificate-content h3 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .certificate-content p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    </style>
+
+    <!-- Hero Video Section -->
+    <section class="hero-video-section" style="width: 100vw; height: 100vh; position: relative; overflow: hidden; background: #000; margin: 0; padding: 0; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <iframe 
+                src="https://player.cloudinary.com/embed/?cloud_name=dcqre7nop&public_id=23008-332257750_small_v0wpqv&autoplay=1&muted=1&loop=1" 
+                width="100%" 
+                height="100%" 
+                style="border: none; min-width: 100%; min-height: 100%; object-fit: cover; transform: scale(1.3); transform-origin: center;"
+                allow="autoplay; fullscreen; encrypted-media" 
+                allowfullscreen
+                loading="eager"
+                preload="auto"
+                playsinline>
+            </iframe>
+        </div>
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+    </section>
+        </iframe>
+    </div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+</section>
+
+    <!-- Contact Us Section (EXACT COPY FROM INDEX) -->
+    <section class="contact-section" style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://img.freepik.com/free-photo/3d-house-model-with-modern-architecture_23-2151004062.jpg') center/cover no-repeat;">
+        <div class="contact-container">
+            <div class="contact-bg-text">Itaria Ceramic</div>
+            <div class="contact-content">
+                <div class="contact-icon">
+                    <svg aria-hidden="true" class="e-font-icon-svg e-fas-circle pulse" viewBox="0 0 512 512"
+                        xmlns="http://www.w3.org/2000/svg" style="animation: pulse 2s infinite;">
+                        <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path>
+                    </svg>
+                    <span class="fade-in-up" style="display: inline-block; animation: fadeInUp 0.8s ease-out;">Let's Create Together</span>
+                </div>
+                <h2 class="contact-title fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.2s both;">
+                    Transform Your Space with <span class="highlight-text"
+                        style="color: #b8996f; position: relative; display: inline-block;">Premium</span> Tiles
+                </h2>
+                <p class="contact-description fade-in-up" style="animation: fadeInUp 0.8s ease-out 0.4s both;">
+                    Discover our exclusive collection of high-quality tiles that combine elegance, durability, and innovative design to bring your vision to life.
+                </p>
+                <a href="contact.html" class="contact-button">
+                    <span class="button-content">
+                        <i class="fas fa-palette"></i>
+                        <span class="button-text">Inquire Now</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (EXACT COPY FROM INDEX) -->
+    <footer class="footer">
+        <div class="footer-content" data-animate="fade">
+            <!-- About Section -->
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <h2>Itaria Ceramic </h2>
+                    <p>Leading the Future</p>
+                </div>
+                <p>Leading the way in global trade with excellence, integrity, and innovation. We connect markets and
+                    build
+                    lasting relationships through quality products and exceptional service.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/itaria.ceramics/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/itaria-ceramics-in/"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#collections">Collections</a></li>
+                    <li><a href="#expertise">Our Expertise</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Our Products -->
+            <div class="footer-section">
+                <h3 class="footer-heading">Our Products</h3>
+                <ul class="footer-links">
+                    <li><a href="collection.html">Ceramic Tiles</a></li>
+                    <li><a href="collection.html">Porcelain Tiles</a></li>
+                    <li><a href="collection.html">Mosaic Tiles</a></li>
+                    <li><a href="collection.html">Outdoor Tiles</a></li>
+                    <li><a href="collection.html">Bathroom Tiles</a></li>
+                    <li><a href="collection.html">Kitchen Tiles</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section" style="background: transparent; padding: 0; border: none; box-shadow: none;">
+                <h3 class="footer-heading" style="color: #fff; margin-bottom: 15px;">Contact Us</h3>
+                <div class="contact-info" style="color: #ccc; line-height: 1.8; background: transparent;">
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: #fff;">Manufacturing Facility</strong><br>
+                        <p style="margin: 5px 0 0 0; color: #ccc;">309, INdr plaza, Halvad rd, Mahendranagar, Morbi, gujarat - 363642, India</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: #fff;">Office Address</strong><br>
+                        <p style="margin: 5px 0 0 0; color: #ccc;">ITARIA CERAMICS, 1108 Sureshwari Techno IT Park premises, Boriwali West, Maharashtra - 400001, India</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 10px;">
+                        <i class="fas fa-phone" style="color: #b8996f; margin-right: 10px;"></i>
+                        <a href="tel:+919307995811" style="color: #ccc; text-decoration: none;">+91 93079 95811</a>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-envelope" style="color: #b8996f; margin-right: 10px;"></i>
+                        <a href="mailto:livacom@outlook.com" style="color: #ccc; text-decoration: none;">livacom@outlook.com</a>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-envelope" style="color: #b8996f; margin-right: 10px;"></i>
+                        <a href="mailto:info@itariaceramics.com" style="color: #ccc; text-decoration: none;">info@itariaceramics.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Itaria Ceramic India. All Rights Reserved. | Designed with <i class="fas fa-heart"
+                    style="color: #b8996f;"></i> by Itaria Ceramic Team</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919307995811" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <style>
+        /* WhatsApp Floating Button Styles */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FFD700);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: whatsappPulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(135deg, #FFA500, #FFD700, #FFA500);
+        }
+
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                bottom: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+    </style>
+
+    <!-- JavaScript (EXACT COPY FROM INDEX) -->
+    <script>
+        // Progress Bar Animation
+        function animateProgressBars() {
+            const progressItems = document.querySelectorAll('.progress-item');
+            
+            // Animate progress circles
+            progressItems.forEach((item, index) => {
+                const circle = item.querySelector('.circle-progress');
+                const value = item.querySelector('.progress-value');
+                let current = 0;
+                const duration = 2000; // 2 seconds total
+                const steps = 100;
+                const increment = 100 / steps;
+                const stepTime = duration / steps;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= 100) {
+                        current = 100;
+                        clearInterval(timer);
+                    }
+                    
+                    // Update the conic gradient
+                    const degrees = (current / 100) * 360;
+                    circle.style.background = `conic-gradient(
+                        var(--primary-color, #b8996f) 0deg,
+                        var(--primary-color, #b8996f) ${degrees}deg,
+                        #e0e0e0 ${degrees}deg,
+                        #e0e0e0 360deg
+                    )`;
+                    
+                    // Update the counter
+                    value.textContent = Math.round(current);
+                }, stepTime);
+            });
+        }
+
+        // Intersection Observer for progress section
+        const progressObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        // Observe all progress items
+        document.querySelectorAll('.progress-item').forEach(item => {
+            progressObserver.observe(item);
+        });
+
+        // Intersection Observer for features section
+        const featureObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const featureCards = entry.target.querySelectorAll('.feature-card');
+                    featureCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, 100 * index); // Stagger the animations
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe features section
+        const featuresSection = document.querySelector('.features-section');
+        if (featuresSection) {
+            featureObserver.observe(featuresSection);
+        }
+
+        // Header scroll effect - transparent to black
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerElement = document.getElementById('header');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            function updateHeader() {
+                const logoImg = document.querySelector('.logo-img');
+                if (window.scrollY > 10 || (mobileMenu && mobileMenu.classList.contains('active'))) {
+                    headerElement.classList.add('scrolled');
+                    if (logoImg) logoImg.style.maxWidth = '140px';
+                } else {
+                    headerElement.classList.remove('scrolled');
+                    if (logoImg) logoImg.style.maxWidth = '180px';
+                }
+            }
+            
+            // Initial check
+            updateHeader();
+            
+            // Add scroll event listener
+            window.addEventListener('scroll', updateHeader);
+            
+            // Update header when mobile menu is toggled
+            const mobileToggle = document.getElementById('mobileToggle');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    // Small delay to ensure mobile menu state is updated
+                    setTimeout(updateHeader, 10);
+                });
+            }
+        });
+
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const body = document.body;
+            const header = document.getElementById('header');
+
+            mobileToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+
+                if (mobileMenu.classList.contains('active')) {
+                    header.classList.add('scrolled');
+                } else if (window.scrollY <= 50) {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    mobileToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    body.style.overflow = '';
+
+                    if (window.scrollY <= 50) {
+                        header.classList.remove('scrolled');
+                    }
+                }
+            });
+
+            // Handle window resize
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    if (window.innerWidth > 992) {
+                        mobileToggle.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        body.style.overflow = '';
+                    }
+                }, 250);
+            });
+        });
+
+        // Initialize animations
+        const animateElements = document.querySelectorAll('[data-animate]');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Scroll-triggered reveal animations for About section
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        // Observe about section elements
+        document.querySelectorAll('.about-image-wrapper, .about-content').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Counter animation
+        const statsSection = document.getElementById('stats-section');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let animationStarted = false;
+
+        function startCounterAnimation(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animationStarted) {
+                    animationStarted = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-count'));
+                        const duration = 2000; // 2 seconds
+                        const stepTime = 50; // Update every 50ms
+                        const steps = duration / stepTime;
+                        const increment = target / steps;
+                        let current = 0;
+
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                stat.textContent = target + '+';
+                                clearInterval(timer);
+                            } else {
+                                stat.textContent = Math.floor(current);
+                            }
+                        }, stepTime);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        const counterObserver = new IntersectionObserver(startCounterAnimation, {
+            threshold: 0.5
+        });
+
+        if (statsSection) {
+            counterObserver.observe(statsSection);
+        }
+    </script>
+</body>
+
+</html>
